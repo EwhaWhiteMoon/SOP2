@@ -28,13 +28,6 @@ void loop() {
   digitalWrite(LED_PIN, false);
   delayMicroseconds(_period - _onTime);
 
-  int t = (millis() % 1000) / 10;
-  set_duty(t > 50 ? t : 100 - t);
-
-  /*
-  if(_pwmTime++ >= _period){
-    _pwmTime = 0;
-  }
-  delayMicroseconds(1);
-  */
+  int t = (millis() % 1000) / 5;
+  set_duty(t < 100 ? t : 200 - t);
 }
